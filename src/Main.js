@@ -4,8 +4,8 @@ import Contact from './views/Contact';
 import Home from './views/Home';
 import NotFound from './views/NotFound';
 import Navbar from './components/Navbar';
-import Products from './views/Products';
-import ProductDetail from './views/ProductDetail';
+import Characters from './views/Characters';
+import ProductDetail from './views/CharDetail';
 
 import './Main.css';
 import injectContext from './store/appContext';
@@ -15,8 +15,8 @@ const Main = () => {
         <BrowserRouter>
             <Navbar />
             <Switch>
-                <Route exact path="/products/:product_id/detail" component={ProductDetail} />
-                <Route exact path="/products" component={Products} />
+                <Route exact path="/products/:chars_id/detail" component={ProductDetail} />
+                <Route exact path="/characters" component={Characters} />
                 <Route exact path="/contact" component={Contact} />
                 <Route exact path="/about" component={About} />
                 <Route exact path="/" component={Home} />

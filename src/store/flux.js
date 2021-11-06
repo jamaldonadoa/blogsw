@@ -9,6 +9,7 @@ const getState = ({ getStore, getActions, setStore }) => {
                 { id: 3, title: 'Product 3', description: "Some quick example text to build on the card title and make up the bulk of the card's content.", url: "https://images.unsplash.com/photo-1523275335684-37898b6baf30?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1099&q=80" }
             ],
             users: null,
+            characters: null,
         },
         actions: {
             getFullName: () => {
@@ -21,7 +22,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 
             getPosts: url => {
                 return fetch(url);
-            }
+            },
+            traer: url => {
+				fetch("https://www.swapi.tech/api/people")
+					.then(resp => resp.json())
+					.then(data => setStore({ characters: data["results"] }));
+			}
 
         }
     }

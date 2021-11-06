@@ -3,32 +3,27 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     return (
-        <ul class="nav justify-content-center">
-            <li class="nav-item">
-                <Link class="nav-link d-flex flex-column align-items-center" to="/">
-                    <FaHome />
-                    Home
-                </Link>
-            </li>
-            <li class="nav-item">
-                <Link class="nav-link d-flex flex-column align-items-center" to="/about">
-                    <FaUser />
-                    About
-                </Link>
-            </li>
-            <li class="nav-item">
-                <Link class="nav-link d-flex flex-column align-items-center" to="/contact">
-                    <FaEnvelope />
-                    Contact
-                </Link>
-            </li>
-            <li class="nav-item">
-                <Link class="nav-link d-flex flex-column align-items-center" to="/products">
-                    <FaBoxes />
-                    Products
-                </Link>
-            </li>
-        </ul>
+        <nav className="navbar navbar-expand-lg navbar-light bg-warning">
+            <div class="container-fluid">
+                <Link class="navbar-brand" to="/">Star Wars Blog</Link>
+                <div class="navbar-nav">
+                    <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/">
+                        Home
+                    </Link>
+                    <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/about">
+                        Planets
+                    </Link>
+                    <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/contact">
+                        Ships
+                    </Link>
+                    <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/characters">
+                        Characters
+                    </Link>
+                </div>
+            </div>
+
+        </nav>
+
     )
 }
 

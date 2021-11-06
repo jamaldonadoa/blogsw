@@ -16,7 +16,7 @@ const injectContext = PassedComponent => {
         }));
 
         useEffect(() => {
-            state.actions.getUsers('https://jsonplaceholder.typicode.com/users');
+            state.actions.traer('https://www.swapi.tech/api/people');
         }, [])
 
         return (
