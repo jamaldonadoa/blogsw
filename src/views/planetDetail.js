@@ -1,17 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 
 const CharDetail = (props) => {
 
-    const { store } = useContext(Context);
-
     const history = useHistory();
 
-    const { chars_id } = useParams();
+    const { plan_id } = useParams();
 
-    const urldetalle = "https://www.swapi.tech/api/people/" + chars_id
+    const urldetalle = "https://www.swapi.tech/api/planets/" + plan_id
 
     async function traerdetalle() {
         try {
@@ -26,16 +24,15 @@ const CharDetail = (props) => {
         }
     }
 
-    const photo = "https://starwars-visualguide.com/assets/img/characters/" + chars_id + ".jpg";
+    const photo = "https://starwars-visualguide.com/assets/img/planets/" + plan_id + ".jpg";
 
     async function crear_detalle() {
         try {
             const detalle = await traerdetalle()
-            document.querySelector(".card-title").innerHTML = "Name: " + detalle.properties.name
-            document.querySelector(".height").innerHTML = "Height: " + detalle.properties.height
-            document.querySelector(".hair_color").innerHTML = "Hair Color: " + detalle.properties.hair_color
-            document.querySelector(".eye_color").innerHTML = "Eye Color: " + detalle.properties.eye_color
-            document.querySelector(".skin_color").innerHTML = "Skin Color: " + detalle.properties.skin_color
+            document.querySelector(".diameter").innerHTML = "Diameter: " + detalle.properties.name
+            document.querySelector(".rotation_period").innerHTML = "Rotation_period: " + detalle.properties.height
+            document.querySelector(".orbital_period").innerHTML = "Orbital_period: " + detalle.properties.hair_color
+            document.querySelector(".gravity").innerHTML = "Gravity: " + detalle.properties.eye_color
             document.querySelector(".description").innerHTML = "Description: " + detalle.description
 
         } catch (error) {
@@ -60,22 +57,22 @@ const CharDetail = (props) => {
                                 <div className="card-body">
                                     <h5 className="card-title"></h5>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item height">
+                                        <li class="list-group-item diameter">
                                             <div class="spinner-grow spinner-grow-sm" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </li>
-                                        <li class="list-group-item hair_color">
+                                        <li class="list-group-item rotation_period">
                                             <div class="spinner-grow spinner-grow-sm" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </li>
-                                        <li class="list-group-item eye_color">
+                                        <li class="list-group-item orbital_period">
                                             <div class="spinner-grow spinner-grow-sm" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </li>
-                                        <li class="list-group-item skin_color">
+                                        <li class="list-group-item gravity">
                                             <div class="spinner-grow spinner-grow-sm" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>

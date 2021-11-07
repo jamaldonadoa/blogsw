@@ -1,8 +1,15 @@
-import { FaBoxes, FaEnvelope, FaHome, FaUser } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { Context } from "../store/appContext";
 
 const Navbar = () => {
+
+    
+    const { store } = useContext(Context)
+
+
     return (
+        
         <nav className="navbar navbar-expand-lg navbar-light bg-warning">
             <div class="container-fluid">
                 <Link class="navbar-brand" to="/">Star Wars Blog</Link>
@@ -10,7 +17,7 @@ const Navbar = () => {
                     <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/">
                         Home
                     </Link>
-                    <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/about">
+                    <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/planets">
                         Planets
                     </Link>
                     <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/contact">
@@ -21,9 +28,7 @@ const Navbar = () => {
                     </Link>
                 </div>
             </div>
-
         </nav>
-
     )
 }
 

@@ -3,11 +3,8 @@ import CardChars from "../components/CardChars";
 import { Context } from "../store/appContext";
 
 
-const Characters = () => {
-    const { store, actions } = useContext(Context);
-    let favoritos = []
-
-
+const Planets = () => {
+    const { store } = useContext(Context);
 
     return (
         <div className="container">
@@ -15,9 +12,9 @@ const Characters = () => {
                 <li class="list-group-item active bg-warning fw-bold">Mis Favoritos</li>
             </ul>
             <div className="row">
-                {store.characters.map((char) => {
-                    const photo = "https://starwars-visualguide.com/assets/img/characters/" + char.uid + ".jpg";
-                    const linkDir = "/products/" + char.uid + "/detail"
+                {store.planets.map((char) => {
+                    const photo = "https://starwars-visualguide.com/assets/img/planets/" + char.uid + ".jpg";
+                    const linkDir = "/planets/" + char.uid + "/detail"
                     return (
                         <div className="col-md-4 py-3" key={char.uid}>
                             <CardChars
@@ -35,4 +32,4 @@ const Characters = () => {
     )
 }
 
-export default Characters;
+export default Planets;
