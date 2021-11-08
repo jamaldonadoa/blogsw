@@ -1,15 +1,14 @@
-import { useContext, useEffect } from "react";
+import {  useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
-import { Context } from "../store/appContext";
 
 
-const CharDetail = (props) => {
+const ShipsDetail = (props) => {
 
     const history = useHistory();
 
-    const { plan_id } = useParams();
+    const { ship_id } = useParams();
 
-    const urldetalle = "https://www.swapi.tech/api/planets/" + plan_id
+    const urldetalle = "https://www.swapi.tech/api/starships/" + ship_id
 
     async function traerdetalle() {
         try {
@@ -18,21 +17,22 @@ const CharDetail = (props) => {
             };
             const response = await fetch(urldetalle, settings);
             const resp = await response.json();
+            console.log(resp)
             return resp["result"];
         } catch (error) {
             console.warn("Ha ocurrido un error: ", error);
         }
     }
 
-    const photo = "https://starwars-visualguide.com/assets/img/planets/" + plan_id + ".jpg";
+    const photo = "https://starwars-visualguide.com/assets/img/starships/" + ship_id + ".jpg";
 
     async function crear_detalle() {
         try {
             const detalle = await traerdetalle()
-            document.querySelector(".diameter").innerHTML = "Diameter: " + detalle.properties.name
-            document.querySelector(".rotation_period").innerHTML = "Rotation_period: " + detalle.properties.height
-            document.querySelector(".orbital_period").innerHTML = "Orbital_period: " + detalle.properties.hair_color
-            document.querySelector(".gravity").innerHTML = "Gravity: " + detalle.properties.eye_color
+            document.querySelector(".model").innerHTML = "Model: " + detalle.properties.name
+            document.querySelector(".starship_class").innerHTML = "Starship Class: " + detalle.properties.height
+            document.querySelector(".manufacturer").innerHTML = "Manufacturer: " + detalle.properties.hair_color
+            document.querySelector(".passengers").innerHTML = "Passengers: " + detalle.properties.eye_color
             document.querySelector(".description").innerHTML = "Description: " + detalle.description
 
         } catch (error) {
@@ -57,22 +57,22 @@ const CharDetail = (props) => {
                                 <div className="card-body">
                                     <h5 className="card-title"></h5>
                                     <ul class="list-group list-group-flush">
-                                        <li class="list-group-item diameter">
+                                        <li class="list-group-item model">
                                             <div class="spinner-grow spinner-grow-sm" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </li>
-                                        <li class="list-group-item rotation_period">
+                                        <li class="list-group-item starship_class">
                                             <div class="spinner-grow spinner-grow-sm" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </li>
-                                        <li class="list-group-item orbital_period">
+                                        <li class="list-group-item manufacturer">
                                             <div class="spinner-grow spinner-grow-sm" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
                                         </li>
-                                        <li class="list-group-item gravity">
+                                        <li class="list-group-item passengers">
                                             <div class="spinner-grow spinner-grow-sm" role="status">
                                                 <span class="visually-hidden">Loading...</span>
                                             </div>
@@ -99,4 +99,4 @@ const CharDetail = (props) => {
     )
 }
 
-export default CharDetail;
+export default ShipsDetail;

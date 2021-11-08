@@ -30,6 +30,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					.then(resp => resp.json())
 					.then(data => setStore({ planets: data["results"] }));
 			},
+            traerShips: url => {
+				fetch(url)
+					.then(resp => resp.json())
+					.then(data => setStore({ ships: data["results"] }));
+			},
         }
     }
 }

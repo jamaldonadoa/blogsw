@@ -5,9 +5,8 @@ const Home = () => {
     const { store, actions } = useContext(Context);
     return (
         <>
-            <h1>Home</h1>
-            <p>Bienvenido,  {store.name} {store.lastname}</p>
-            <p>Bienvenido,  {actions.getFullName()}</p>
+            <img className="col-md-12" src="https://i.gifer.com/X0X2.gif"/ >
+            
         </>
     )
 }

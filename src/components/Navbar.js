@@ -20,7 +20,7 @@ const Navbar = () => {
                     <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/planets">
                         Planets
                     </Link>
-                    <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/contact">
+                    <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/ships">
                         Ships
                     </Link>
                     <Link class="nav-link d-flex flex-column align-items-center fw-bold" to="/characters">

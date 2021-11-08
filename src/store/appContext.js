@@ -18,6 +18,7 @@ const injectContext = PassedComponent => {
         useEffect(() => {
             state.actions.traer("https://www.swapi.tech/api/people");
             state.actions.traerPlanets("https://www.swapi.tech/api/planets")
+            state.actions.traerShips("https://www.swapi.tech/api/starships")
         }, [])
 
         return (
